@@ -1,0 +1,44 @@
+﻿@page
+@model LoginModel
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/css/login.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="container d-flex justify-content-center mt-4">
+    <div class="d-flex flex-column justify-content-between">
+        <div class="card mt-3 p-5">
+            <div class="logo mb-3"><img src="https://imgur.com/zydrQCr.png"></div>
+            <div>
+                <p class="mb-1">Start managing your</p>
+                <h4 class="mb-5 text-white">Aunty 'B' Compere Website!</h4>
+            </div>
+        </div>
+        <div class="card two bg-white px-5 py-4 mb-3 pt-5">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <input asp-for="Username" class="form-control" required/>
+                    <label class="form-control-placeholder" asp-for="Username">Email/Username</label>
+                    <span asp-validation-for="Username"></span>
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control"})
+                    <label class="form-control-placeholder" asp-for="Password">Password</label>
+                    <span asp-validation-for="Password"></span>
+                </div>
+                
+                <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">
+                        Login <i class="fas fa-long-arrow-alt-right ml-2"></i>
+                    </button>
+                    
+                    <a href="/" class="text-center mt-2">Go Home</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

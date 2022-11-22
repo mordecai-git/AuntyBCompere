@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Montserrat:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&display=swap");
+
+/* Colors */
+:root {
+    --color-default: #364d59;
+    --color-primary: #ff6780;
+    --color-secondary: #262626;
+    --font-primary: "Montserrat", sans-serif;
+    --font-secondary: font-family: "Charm";
+}
+
+*, .fw-montserrat {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h5,
+h5,
+h6,
+.fw-charm {
+    font-family: "Charm";
+}
+
+.fw-200 {
+    font-weight: 200 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+#topbar .contact-info i span {
+    padding-left: 5px;
+    color: var(--color-secondary);
+}
+
+    #topbar .contact-info i span a {
+        padding-left: 5px;
+        color: var(--color-secondary);
+    }
+
+        #topbar .contact-info i span a:hover {
+            padding-left: 5px;
+            color: var(--color-primary);
+        }
+
+#topbar .socials ul li a {
+    color: var(--color-primary);
+    font-size: 20px
+}
+
+
+/*--------------------------------------------------------------
+# Service Details Section
+--------------------------------------------------------------*/
+.service-details .services-list {
+    padding: 10px 30px;
+    border: 1px solid #d5d7da;
+    margin-bottom: 20px;
+}
+
+    .service-details .services-list a {
+        display: block;
+        line-height: 1;
+        padding: 8px 0 8px 15px;
+        border-left: 3px solid #d9e3e8;
+        margin: 20px 0;
+        color: var(--color-secondary);
+        transition: 0.3s;
+    }
+
+        .service-details .services-list a.active {
+            font-weight: 700;
+            border-color: var(--color-primary);
+        }
+
+        .service-details .services-list a:hover {
+            border-color: var(--color-primary);
+        }
+
+.service-details .services-img {
+    margin-bottom: 20px;
+}
+
+.service-details h3 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.service-details h4 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.service-details p {
+    font-size: 15px;
+}
+
+.service-details ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+}
+
+    .service-details ul li {
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .service-details ul i {
+        font-size: 20px;
+        margin-right: 8px;
+        color: var(--color-primary);
+    }
+
+.service-details img {
+    height: auto;
+    width: 500px;
+    float: right;
+}
+
+.service-details p {
+    margin: 0.5rem;
+    text-indent: 2rem;
+    text-align: justify;
+}
+
+@media (max-width: 720px) {
+    .service-details img {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 960px) {
+    .service-details img {
+        margin-left: 20px;
+        width: 400px;
+    }
+}
+
+@media (max-width: 540px) {
+    .service-details img {
+        width: 500px;
+    }
+}
+
+.detail-list {
+}
+
+.detail-list div {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+    .detail-list div a {
+        color: var(--color-secondary);
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+        .detail-list div a:hover {
+            color: var(--color-primary);
+        }
+
+    .detail-list div .active {
+        color: var(--color-primary);
+        border-bottom: 2px solid var(--color-secondary);
+    }
+
+        .detail-list div .active:hover {
+            color: var(--color-primary);
+        }

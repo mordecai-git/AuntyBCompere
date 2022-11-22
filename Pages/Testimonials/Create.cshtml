@@ -1,0 +1,54 @@
+﻿@page
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Testimonials</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Testimonial.ServiceId" class="control-label"></label>
+                <select asp-for="Testimonial.ServiceId" class ="form-control" asp-items="ViewBag.ServiceId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Testimonial.Name" class="control-label"></label>
+                <input asp-for="Testimonial.Name" class="form-control" />
+                <span asp-validation-for="Testimonial.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Testimonial.Position" class="control-label"></label>
+                <input asp-for="Testimonial.Position" class="form-control" />
+                <span asp-validation-for="Testimonial.Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Testimonial.Content" class="control-label"></label>
+                <textarea class="form-control" data-val="true" data-val-length="The field Content must be a string with a maximum length of 2000." data-val-length-max="2000" id="Testimonial_Content" maxlength="2000" name="Testimonial.Content" type="text" value=""></textarea>
+                @*<input asp-for="Testimonial.Content" class="form-control" />*@
+                <span asp-validation-for="Testimonial.Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Testimonial.DateCreated" class="control-label"></label>
+                <input asp-for="Testimonial.DateCreated" class="form-control" />
+                <span asp-validation-for="Testimonial.DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

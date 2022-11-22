@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Montserrat:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&display=swap");
+
+/* Colors */
+:root {
+    --color-default: #364d59;
+    --color-primary: #ff6780;
+    --color-secondary: #262626;
+    --font-primary: "Montserrat", sans-serif;
+    --font-secondary: font-family: "Charm";
+}
+
+*, .fw-montserrat {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h5,
+h5,
+h6,
+.fw-charm {
+    font-family: "Charm";
+}
+
+.fw-200 {
+    font-weight: 200 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+#topbar .contact-info i span {
+    padding-left: 5px;
+    color: var(--color-secondary);
+}
+
+    #topbar .contact-info i span a {
+        padding-left: 5px;
+        color: var(--color-secondary);
+    }
+
+        #topbar .contact-info i span a:hover {
+            padding-left: 5px;
+            color: var(--color-primary);
+        }
+
+#topbar .socials ul li a {
+    color: var(--color-primary);
+    font-size: 20px
+}
+
+.custom-question {
+    list-style-type: none;
+    /*margin: 25px 0 0 0;*/
+    padding: 0;
+}
+
+    .custom-question div {
+        float: left;
+        margin: 0 10px 0 0;
+        /*width: 85px;*/
+        height: 65px;
+        position: relative;
+    }
+
+    .custom-question label, .custom-question input {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+        .custom-question input[type="radio"] {
+            opacity: 0.011;
+            z-index: 100;
+        }
+
+            .custom-question input[type="radio"]:checked + label {
+                background: #ff6780;
+                color: #fff;
+            }
+
+    .custom-question label {
+        padding: 20px;
+        /*border: 1px solid #ff6780;*/
+        cursor: pointer;
+        z-index: 90;
+        border-radius: 5px;
+        color: #05322B;
+        font-weight: 600;
+        font-size: small;
+    }
+
+        .custom-question label:hover {
+            background: #DDD;
+        }

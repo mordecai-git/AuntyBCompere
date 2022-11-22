@@ -1,0 +1,227 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Services";
+    ViewData["page-name"] = "services";
+}
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Services</h2>
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>Services</li>
+        </ol>
+
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Services</h2>
+            <p>Let's Plan or Host Your Perfect Event</p>
+        </div>
+
+        <div class="row gy-4">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item  position-relative">
+                    <div class="icon">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <h3>Event MC/Compere</h3>
+                    <p>
+                        Having to deal with people and create an environment that fits the occasion can be a whole lot but NOT with <span class="fw-600">Aunty B Compere.</span> She is a professional who has emceed all kinds of events in different parts of the world.
+                    </p>
+                    <a asp-page="/services/details" asp-route-id="1" class="readmore stretched-link">
+                        Learn more <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div><!-- End Service Item -->
+
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-item position-relative">
+                    <div class="icon">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h3>Alaga Iduro/Ijoko</h3>
+                    <p>
+                        <span class="fw-600">(African Traditional Weddings)</span> <br/>
+                        African traditional weddings are great due to the different aspects that they entail, such as alaga iduro/ijoko, aso ebi, groom prostration, eru iyawo packaging, dowry, and so on.
+                    </p>
+                    <a asp-page="/services/details" asp-route-id="2" class="readmore stretched-link">
+                        Learn more <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div><!-- End Service Item -->
+
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-item position-relative">
+                    <div class="icon">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <h3>Clowning and Costuming</h3>
+                    <p>
+                        Clowns bring a lot of colour and fun to parades, community gatherings, and commercial efforts. Clowns interact with the audience by waving, performing antics, and personally engaging both children and adults.
+                    </p>
+                    <a asp-page="/services/details" asp-route-id="3" class="readmore stretched-link">
+                        Learn more <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div><!-- End Service Item -->
+            
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-item position-relative">
+                    <div class="icon">
+                        <i class="fa-solid fa-mountain-city"></i>
+                    </div>
+                    <h3>Trainings</h3>
+                    <p>
+                        Public speaking can make or break your career. It can also help you get ahead in life if done properly. Aunty B has been training people from all walks of life in public speaking for over 15 years and has helped them achieve their goals through this skill.
+                    </p>
+                    <a asp-page="/services/details" asp-route-id="4" class="readmore stretched-link">
+                        Learn more <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div><!-- End Service Item -->
+        </div>
+
+    </div>
+</section>
+<!-- End Services Section -->
+
+<!-- ======= CTA Section ======= -->
+<section id="cta" class="cta">
+    <div class="container" data-aos="fade-up">
+        <div class="row text-white">
+            <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content text-center">
+                <h3>Let's make your Event Flawless</h3>
+                <button type="button" class="btn-primary mt-4 px-5 fw-600">BOOK AN APPOINTMENT NOW</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End CTA Section -->
+
+<!-- ======= Testimonialss Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Testimonialss</h2>
+            <p>
+                See What Our Amazing Clients Say About Us; You Will Be Stunned
+            </p>
+        </div>
+
+        <div class="testimonials-slider swiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            @*<img src="~/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">*@
+                            <h3>Jane Doe</h3>
+                            <h4>Ceo &amp; Founder</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                In June 2021, I attended a program hosted by Aunty B Compere. The professionalism and elegance displayed intrigued me so much that I became hooked Therefore in January 2022 when my daughther clocked 3, it was Aunty B I invited to host .and as usual herr performance was top notch, above par and excellent.
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            @*<img src="~/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">*@
+                            <h3>Jane Doe</h3>
+                            <h4>Designer</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                Aunty 'B' Compere is a household name when it comes to compere.
+                                She took charge at 50th Birthday and  book Presentation of 34 Things Great Couples do and others Struggle with on the 1st of June 2014 in Ibadan, Nigeria.
+
+                                The event was well coordinated; it was placid, humorous and full of good memories and left a good taste in people.
+
+                                I recommend her for any of your events, whether it's children's or adults, formal or informal. You can be sure she will be at home with any one of them.
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            @*<img src="~/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">*@
+                            <h3>Jane Doe</h3>
+                            <h4>Store Owner</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                Aunty B compere is the  best , I always enjoy her program everything . I went to MD for my sister son one year birthday. She so performs so many wonderful job. Keep it up
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            @*<img src="~/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">*@
+                            <h3>Jane Doe</h3>
+                            <h4>Freelancer</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                I have known Aunty'B'Compere for over two decades when we were young girls, she is coordinated and always on point. 
+                                In 2013 we needed someone to organize a regional program to celebrate children at my office (Diamond Bank) on children's day and this was given to Aunty'B'Compere to plan. She did a great job in planning the event, recommended a great venue and all logistics were handled by her. All the children had fun and had a great time at the event. I will recommend Aunty'B'Compere for any event planning, logistics, MC , games etc. Oluwaseun Area Sales Mgr
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            @*<img src="~/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">*@
+                            <h3>Jane Doe</h3>
+                            <h4>Entrepreneur</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                I attended a friend’s baby shower party anchored by Aunty'B'Compere. The party was so much fun that my friend had to let her handle her daughter’s first year birthday party. Both the parents and the kids were entertained and I’m convinced that’s henceforth Aunty'B'Compere will always be part of my event. Thank you for a great job ma’am and I will surely recommend Aunty'B'Compere for any event if you want to have an unforgettable day!
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section>
+<!-- End Testimonialss Section -->

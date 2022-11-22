@@ -1,0 +1,74 @@
+﻿@page
+@model BookModel
+@{
+    ViewData["Title"] = "Book An Appointment";
+    ViewData["page-name"] = "book";
+}
+
+<link rel="stylesheet" href="~/css/booking.css" asp-append-version="true" />
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Bookings</h2>
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>Book An Appointment</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+<div class="container my-5">
+    <form method="post">
+        <div class="row">
+            <div class="col-12 ps-0">
+                <label class="form-label fw-bold">Select Service</label>
+            </div>
+            <div class="col-12">
+                <div class="custom-question row">
+                    @foreach (var service in Model.ServiceList)
+                    {
+                        <div class="col-3">
+                            <input asp-for="Booking.ServiceId" type="radio" value="@service.Id" id="@($"service{service.Id}")" onclick="toggleSelect(this)" />
+                            <label for="@($"service{service.Id}")" class="shadow-lg rounded" onclick="toggleSelect(this)">
+                                <i class="fa-regular fa-circle" class="serviceIcon"></i> &nbsp; &nbsp; @service.Name
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-12 ps-0 mt-5">
+                <label class="form-label fw-bold">Select Time</label>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-6">
+                        Hello there
+                    </div>
+                    <div class="custom-question time-question col-lg-6">
+                        <div class="col-3">
+                            <input asp-for="Booking.ServiceId" type="radio" value="9" id="time9"/>
+                            <label for="time9" class="rounded" style="background-color: gray">
+                                <i class="fa-regular fa-circle" class="serviceIcon"></i> 9:00 am
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        var toggleSelect = function(param) {
+            console.log($(this))
+            const inputId = param.attr('id');
+            console.log(inputId);
+        };
+
+        5
+    </script>
+}
