@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AuntyBCompere.Models.Data;
 
@@ -16,7 +17,13 @@ public class Service
     [StringLength(5000)]
     public string Summary { get; set; }
     public string Content { get; set; }
+    public bool IsStandard { get; set; }
 
     public ICollection<Testimonial> Testimonials { get; set; }
     public ICollection<Gallery> Galleries { get; set; }
+    public ICollection<BookingService> BookingServices { get; set; }
+
+
+    [NotMapped]
+    public bool IsSelected { get; set; } = false;
 }

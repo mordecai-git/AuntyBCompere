@@ -4,7 +4,7 @@
 :root {
     --color-default: #364d59;
     --color-primary: #ff6780;
-    --color-secondary: #262626;
+    --color-secondary: #8c5c22;
     --font-primary: "Montserrat", sans-serif;
     --font-secondary: font-family: "Charm";
 }
@@ -63,16 +63,18 @@ h6,
     font-size: 20px
 }
 
+.form-title {
+    font-size: 1.5rem;
+}
+
 .custom-question {
     list-style-type: none;
-    /*margin: 25px 0 0 0;*/
     padding: 0;
 }
 
     .custom-question div {
         float: left;
-        margin: 0 10px 0 0;
-        /*width: 85px;*/
+        /*margin: 0 10px 0 0;*/
         height: 65px;
         position: relative;
     }
@@ -84,6 +86,7 @@ h6,
         left: 0;
         right: 0;
         bottom: 0;
+        cursor: pointer;
     }
 
         .custom-question input[type="radio"] {
@@ -92,13 +95,33 @@ h6,
         }
 
             .custom-question input[type="radio"]:checked + label {
-                background: #ff6780;
+                background: var(--color-primary);
+                color: #fff;
+            }
+
+            .custom-question input[type="radio"]:hover + label {
+                background: var(--color-primary);
+                color: #fff;
+            }
+
+        .custom-question input[type="checkbox"] {
+            opacity: 0.011;
+            z-index: 100;
+        }
+
+            .custom-question input[type="checkbox"]:checked + label {
+                background: var(--color-primary);
+                color: #fff;
+            }
+
+            .custom-question input[type="checkbox"]:hover + label {
+                background: var(--color-secondary);
                 color: #fff;
             }
 
     .custom-question label {
         padding: 20px;
-        /*border: 1px solid #ff6780;*/
+        margin-right: 15px;
         cursor: pointer;
         z-index: 90;
         border-radius: 5px;
@@ -110,3 +133,72 @@ h6,
         .custom-question label:hover {
             background: #DDD;
         }
+
+.time-question div {
+    height: 45px;
+}
+
+.time-question label {
+    margin-right: 0;
+    text-align: center;
+    background-color: #f1f4f7;
+    color: var(--color-primary);
+    border-radius: 10px !important;
+    padding: 15px 0;
+}
+
+    .time-question label:hover {
+        background-color: var(--color-secondary);
+        color: #fff;
+    }
+
+.time-question .taken {
+    background-color: var(--color-secondary) !important;
+    color: #fff !important;
+    cursor: default;
+}
+
+.time-question label, .time-question input {
+    position: unset !important;
+}
+
+.time-note {
+    background-color: #f1f4f7;
+    color: var(--color-primary);
+    padding: 1rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px !important;
+    font: inherit;
+    color: var(--color-secondary);
+    background-color: transparent;
+    outline: 2px solid #abacae;
+    width: 75%;
+}
+
+.input-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(10px, 10px);
+    transition: transform .25x;
+}
+
+.input:focus + .input-label,
+.input:valid + .input-label {
+    transform: translate(10px, -14px) scale(.8);
+    color: var(--color-primary);
+    padding-inline: 5px;
+    background-color: #fff;
+}
+
+.input:is(:focus) {
+    outline-color: var(--color-primary);
+}

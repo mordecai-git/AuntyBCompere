@@ -16,6 +16,7 @@ namespace AuntyBCompere.Data
         public DbSet<Service> Services { get; set; } 
         public DbSet<Gallery> Galleries { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<BookingService> BookingServices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +25,15 @@ namespace AuntyBCompere.Data
             modelBuilder.Entity<Service>().ToTable("Service");
             modelBuilder.Entity<Gallery>().ToTable("Gallery");
             modelBuilder.Entity<Booking>().ToTable("Booking");
+
+            modelBuilder.Entity<BookingService>()
+                .ToTable("BookingService")
+                .HasKey(x => new {x.BookingId, x.ServiceId});
+
+            //modelBuilder.Entity<BookingService>()
+            //    .HasOne(pt => pt.Booking)
+            //    .WithMany(p => p.BookingService)
+            //    .HasFo
         }
     }
 }

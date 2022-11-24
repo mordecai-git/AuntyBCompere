@@ -2,7 +2,7 @@
 @model DetailsModel
 
 @{
-    ViewData["Title"] = "Event MC";
+    ViewData["Title"] = Model.Service.Name;
     ViewData["page-name"] = "services";
 }
 
@@ -51,7 +51,7 @@
             </div>
             <div class="col-12">
                 <h4 class="mb-3">@Model.Service.Tagline</h4>
-                <img src="/img/hero-bg.jpg" alt="" class="img-fluid services-img8 ps-lg-4">
+                <img src="@Model.Service.ImageName" alt="" class="img-fluid services-img8 ps-lg-4">
                 <p>
                     @Html.Raw(Model.Service.Content)
                 </p>
@@ -64,19 +64,19 @@
     <div class="container" data-aos="fade-up">
         <div class="row text-white">
             <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content text-center">
-                <h3>Let's make your Event Flawless</h3>
-                <button type="button" class="btn-primary mt-4 px-5 fw-600">BOOK AN APPOINTMENT NOW</button>
+                <h3>We Make Flawless Event</h3>
+                <a href="/book" class="btn-primary mt-4 px-5 fw-600">BOOK AN APPOINTMENT NOW</a>
             </div>
         </div>
     </div>
 </section>
 <!-- End CTA Section -->
-<!-- ======= Testimonialss Section ======= -->
+<!-- ======= Testimonials Section ======= -->
 <section id="testimonials" class="testimonials section-bg">
     <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-            <h2>Testimonialss</h2>
+            <h2>Testimonials</h2>
             <p>See What Our Amazing Clients Say About Us; You Will Be Stunned</p>
         </div>
 
@@ -86,15 +86,13 @@
                 <div class="swiper-slide">
                     <div class="testimonial-wrap">
                         <div class="testimonial-item">
-                            @*<img src="~/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">*@
                             <h3>Jane Doe</h3>
-                            <h4>Ceo &amp; Founder</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                In June 2021, I attended a program hosted by Aunty B Compere. The professionalism and elegance displayed intrigued me so much that I became hooked Therefore in January 2022 when my daughther clocked 3, it was Aunty B I invited to host .and as usual herr performance was top notch, above par and excellent.
+                                In June 2021, I attended a program hosted by Aunty 'B' Compere. The professionalism and elegance displayed intrigued me so much that I became hooked Therefore in January 2022 when my daughther clocked 3, it was Aunty 'B' I invited to host .and as usual herr performance was top notch, above par and excellent.
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -104,9 +102,7 @@
                 <div class="swiper-slide">
                     <div class="testimonial-wrap">
                         <div class="testimonial-item">
-                            @*<img src="~/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">*@
                             <h3>Jane Doe</h3>
-                            <h4>Designer</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
@@ -127,15 +123,13 @@
                 <div class="swiper-slide">
                     <div class="testimonial-wrap">
                         <div class="testimonial-item">
-                            @*<img src="~/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">*@
                             <h3>Jane Doe</h3>
-                            <h4>Store Owner</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                Aunty B compere is the  best , I always enjoy her program everything . I went to MD for my sister son one year birthday. She so performs so many wonderful job. Keep it up
+                                Aunty 'B' compere is the  best , I always enjoy her program everything . I went to MD for my sister son one year birthday. She so performs so many wonderful job. Keep it up
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -145,9 +139,7 @@
                 <div class="swiper-slide">
                     <div class="testimonial-wrap">
                         <div class="testimonial-item">
-                            @*<img src="~/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">*@
-                            <h3>Jane Doe</h3>
-                            <h4>Freelancer</h4>
+                            <h3>Oluwaseun</h3>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
@@ -164,9 +156,7 @@
                 <div class="swiper-slide">
                     <div class="testimonial-wrap">
                         <div class="testimonial-item">
-                            @*<img src="~/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">*@
                             <h3>Jane Doe</h3>
-                            <h4>Entrepreneur</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
@@ -185,4 +175,4 @@
 
     </div>
 </section>
-<!-- End Testimonialss Section -->
+<!-- End Testimonials Section -->

@@ -4,6 +4,7 @@ using AuntyBCompere.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuntyBCompere.Migrations
 {
     [DbContext(typeof(AuntyBCompereContext))]
-    partial class AuntyBCompereContextModelSnapshot : ModelSnapshot
+    [Migration("20221124002230_six")]
+    partial class six
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,21 +60,6 @@ namespace AuntyBCompere.Migrations
                     b.ToTable("Booking", (string)null);
                 });
 
-            modelBuilder.Entity("AuntyBCompere.Models.Data.BookingService", b =>
-                {
-                    b.Property<int>("BookingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BookingId", "ServiceId");
-
-                    b.HasIndex("ServiceId");
-
-                    b.ToTable("BookingService", (string)null);
-                });
-
             modelBuilder.Entity("AuntyBCompere.Models.Data.Gallery", b =>
                 {
                     b.Property<int>("Id")
@@ -114,6 +101,9 @@ namespace AuntyBCompere.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("BookingId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
@@ -141,6 +131,8 @@ namespace AuntyBCompere.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookingId");
 
                     b.ToTable("Service", (string)null);
                 });
@@ -220,25 +212,6 @@ namespace AuntyBCompere.Migrations
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("AuntyBCompere.Models.Data.BookingService", b =>
-                {
-                    b.HasOne("AuntyBCompere.Models.Data.Booking", "Booking")
-                        .WithMany("BookingServices")
-                        .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AuntyBCompere.Models.Data.Service", "Service")
-                        .WithMany("BookingServices")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Booking");
-
-                    b.Navigation("Service");
-                });
-
             modelBuilder.Entity("AuntyBCompere.Models.Data.Gallery", b =>
                 {
                     b.HasOne("AuntyBCompere.Models.Data.Service", "Service")
@@ -248,6 +221,13 @@ namespace AuntyBCompere.Migrations
                         .IsRequired();
 
                     b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("AuntyBCompere.Models.Data.Service", b =>
+                {
+                    b.HasOne("AuntyBCompere.Models.Data.Booking", null)
+                        .WithMany("Services")
+                        .HasForeignKey("BookingId");
                 });
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.Testimonial", b =>
@@ -263,13 +243,11 @@ namespace AuntyBCompere.Migrations
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.Booking", b =>
                 {
-                    b.Navigation("BookingServices");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.Service", b =>
                 {
-                    b.Navigation("BookingServices");
-
                     b.Navigation("Galleries");
 
                     b.Navigation("Testimonials");

@@ -4,6 +4,7 @@ using AuntyBCompere.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuntyBCompere.Migrations
 {
     [DbContext(typeof(AuntyBCompereContext))]
-    partial class AuntyBCompereContextModelSnapshot : ModelSnapshot
+    [Migration("20221124003638_seven")]
+    partial class seven
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,21 +58,6 @@ namespace AuntyBCompere.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Booking", (string)null);
-                });
-
-            modelBuilder.Entity("AuntyBCompere.Models.Data.BookingService", b =>
-                {
-                    b.Property<int>("BookingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BookingId", "ServiceId");
-
-                    b.HasIndex("ServiceId");
-
-                    b.ToTable("BookingService", (string)null);
                 });
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.Gallery", b =>
@@ -220,23 +207,19 @@ namespace AuntyBCompere.Migrations
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("AuntyBCompere.Models.Data.BookingService", b =>
+            modelBuilder.Entity("BookingService", b =>
                 {
-                    b.HasOne("AuntyBCompere.Models.Data.Booking", "Booking")
-                        .WithMany("BookingServices")
-                        .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("BookingsId")
+                        .HasColumnType("int");
 
-                    b.HasOne("AuntyBCompere.Models.Data.Service", "Service")
-                        .WithMany("BookingServices")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ServicesId")
+                        .HasColumnType("int");
 
-                    b.Navigation("Booking");
+                    b.HasKey("BookingsId", "ServicesId");
 
-                    b.Navigation("Service");
+                    b.HasIndex("ServicesId");
+
+                    b.ToTable("BookingService");
                 });
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.Gallery", b =>
@@ -261,15 +244,23 @@ namespace AuntyBCompere.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("AuntyBCompere.Models.Data.Booking", b =>
+            modelBuilder.Entity("BookingService", b =>
                 {
-                    b.Navigation("BookingServices");
+                    b.HasOne("AuntyBCompere.Models.Data.Booking", null)
+                        .WithMany()
+                        .HasForeignKey("BookingsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AuntyBCompere.Models.Data.Service", null)
+                        .WithMany()
+                        .HasForeignKey("ServicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.Service", b =>
                 {
-                    b.Navigation("BookingServices");
-
                     b.Navigation("Galleries");
 
                     b.Navigation("Testimonials");

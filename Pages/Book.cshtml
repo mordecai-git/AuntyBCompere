@@ -6,6 +6,8 @@
 }
 
 <link rel="stylesheet" href="~/css/booking.css" asp-append-version="true" />
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-basic.css" />
 
 <!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('img/breadcrumbs-bg.jpg');">
@@ -21,54 +23,232 @@
 <!-- End Breadcrumbs -->
 
 <div class="container my-5">
-    <form method="post">
-        <div class="row">
+    <form method="post" id="bookingForm">
+        <div class="row mx-3">
             <div class="col-12 ps-0">
-                <label class="form-label fw-bold">Select Service</label>
+                <label class="form-label fw-bold form-title">Select The Services</label>
             </div>
             <div class="col-12">
-                <div class="custom-question row">
-                    @foreach (var service in Model.ServiceList)
+                <div class="custom-question row" id="serviceListInput">
+                    @for (int i = 0; i < Model.Booking.Services.Count(); i++)
                     {
-                        <div class="col-3">
-                            <input asp-for="Booking.ServiceId" type="radio" value="@service.Id" id="@($"service{service.Id}")" onclick="toggleSelect(this)" />
-                            <label for="@($"service{service.Id}")" class="shadow-lg rounded" onclick="toggleSelect(this)">
-                                <i class="fa-regular fa-circle" class="serviceIcon"></i> &nbsp; &nbsp; @service.Name
+                        @Html.HiddenFor(m => m.Booking.Services[i].Id)
+                        <div class="col-lg-6 col-12 mb-3 px-lg-3">
+                            @Html.CheckBoxFor(m => m.Booking.Services[i].IsSelected, new { @class = ""})
+                            @*<input asp-for="Booking.Test" type="checkbox"
+                        value="@service.Id" id="@($"service{service.Id}")" required />*@
+                            <label for="@($"service{Model.Booking.Services[i].Id}")" class="shadow-lg rounded">
+                                <i class="fa-regular fa-circle"></i> &nbsp; &nbsp; @Model.Booking.Services[i].Name
                             </label>
                         </div>
                     }
+                    @*<span asp-validation-for="" class="text-danger fw-600"></span>*@
+                   @Html.ValidationMessage("serviceListError", new { @class = "text-danger"})
                 </div>
             </div>
             <div class="col-12 ps-0 mt-5">
-                <label class="form-label fw-bold">Select Time</label>
+                <label class="form-label fw-bold form-title">Select Time</label>
             </div>
             <div class="col-12">
                 <div class="row">
-                    <div class="col-lg-6">
-                        Hello there
+                    <div class="col-md-6 col-12">
+                        <div id="color-calendar"></div>
                     </div>
-                    <div class="custom-question time-question col-lg-6">
-                        <div class="col-3">
-                            <input asp-for="Booking.ServiceId" type="radio" value="9" id="time9"/>
-                            <label for="time9" class="rounded" style="background-color: gray">
-                                <i class="fa-regular fa-circle" class="serviceIcon"></i> 9:00 am
-                            </label>
+                    <div class="col-md-6 col-12">
+                        <div class="row custom-question time-question pt-4">
+                            <input type="hidden" value="@Model.Booking.DateBooked.ToString("yyyy-MM-dd")" id="Booking_DateBooked" name="Booking.DateBooked" />
+                            <span asp-validation-for="Booking.DateBooked" class="text-danger fw-600 col-12"></span>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="9" id="time9" />
+                                <label for="time9" class="">
+                                    9:00 am
+                                </label>
+                                @* <label for="time9" class="taken">
+                                9:00 am
+                                </label>*@
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="10" id="time10" />
+                                <label for="time10">
+                                    10:00 am
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="11" id="time11" />
+                                <label for="time11">
+                                    11:00 am
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="12" id="time12" />
+                                <label for="time12">
+                                    12:00 am
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="13" id="time1" />
+                                <label for="time1">
+                                    1:00 pm
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="14" id="time2" />
+                                <label for="time2">
+                                    2:00 pm
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="15" id="time3" />
+                                <label for="time3">
+                                    3:00 pm
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="16" id="time4" />
+                                <label for="time4">
+                                    4:00 pm
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-6 mb-3">
+                                <input name="bookingTime" type="radio" value="17" id="time5" />
+                                <label for="time5">
+                                    5:00 pm
+                                </label>
+                            </div>
+                        </div>
+
+                        <p class="col-12 time-note mt-3">
+                            <i class="fa fa-circle-info"></i> &nbsp; All times are in Central Time (US & Canada)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 ps-0 mt-5">
+                <label class="form-label fw-bold form-title">Add Your Details</label>
+            </div>
+            <div class="col-12 ps-0">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="input-group">
+                            <input asp-for="Booking.Name" required class="input" />
+                            <label asp-for="Booking.Name" class="input-label">Name</label>
+                            <span asp-validation-for="Booking.Name" class="text-danger fw-600"></span>
+                        </div>
+
+                        <div class="input-group mt-3">
+                            <input asp-for="Booking.Email" required class="input" />
+                            <label asp-for="Booking.Email" class="input-label">Email</label>
+                            <span asp-validation-for="Booking.Email" class="text-danger fw-600"></span>
+                        </div>
+
+                        <div class="input-group mt-3">
+                            <input asp-for="Booking.Phone" required class="input" />
+                            <label asp-for="Booking.Phone" class="input-label">Phone</label>
+                            <span asp-validation-for="Booking.Phone" class="text-danger fw-600"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <p class="col-12 time-note">
+                            <i class="fa fa-circle-question"></i> &nbsp; Please let us know if you have any additional requests.
+                        </p>
+                        <div class="input-group mt-3">
+                            <textarea asp-for="Booking.Notes" class="input w-100" rows="4"></textarea>
+                            <label asp-for="Booking.Notes" class="input-label">Notes (optional)</label>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="col-12 ps-0 mt-5 text-center">
+                <input type="submit" class="btn btn-primary px-5" value="Book Now" />
             </div>
         </div>
     </form>
 </div>
 
-@section Scripts {
-    <script>
-        var toggleSelect = function(param) {
-            console.log($(this))
-            const inputId = param.attr('id');
-            console.log(inputId);
-        };
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success fw-600" id="exampleModalLabel">Successful</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Appointment has been set successfully.</p>
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>*@
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-        5
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.js"></script>
+    <script>
+        $(document).ready(function() {
+            var selectedDate;
+            var selectedDateAndTime;
+
+            new Calendar({
+                id: "#color-calendar",
+                calendarSize: "small",
+                dateChanged: (currentDate, events) => {
+                    //console.log("date change: ", currentDate);
+                    //console.log('type of date: ', typeof(currentDate));
+                    selectedDate = currentDate;
+                },
+                monthChanged: (currentDate, events) => {
+                    //console.log("month change", currentDate, events);
+                    selectedDate = currentDate;
+                }
+            });
+
+            $('input[type=radio][name=bookingTime]').change(function() {
+                console.log('out date: ', selectedDate);
+                var year = selectedDate.getFullYear();
+                var month = selectedDate.getMonth();
+                var day = selectedDate.getDate();
+                var hour = parseInt(this.value);
+                selectedDateAndTime = new Date(year, month, day, hour);
+                console.log(selectedDateAndTime.toISOString().substring(0, 10))
+                $('#Booking_DateBooked').val(`${selectedDateAndTime.toISOString().substring(0, 10)} ${hour}:00:00`);
+            });
+
+            //$("#submitBtn").click(function(){
+            //    $("#myForm").submit(); // Submit the form
+            //});
+
+            $('#bookingForm').submit(function(e) {
+                e.preventDefault();
+
+                $("#bookingForm").attr("disabled", true);
+                this.submit();
+            });
+
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'),
+                {
+                    keyboard: true
+                });
+
+        @if (TempData["SCC"] != null)
+        {
+            @:myModal.show();
+        }
+                });
     </script>
 }

@@ -4,7 +4,7 @@
 :root {
     --color-default: #364d59;
     --color-primary: #ff6780;
-    --color-secondary: #262626;
+    --color-secondary: #8c5c22;
     --font-primary: "Montserrat", sans-serif;
     --font-secondary: font-family: "Charm";
 }
@@ -132,6 +132,7 @@ h6,
     height: auto;
     width: 500px;
     float: right;
+    padding-bottom: 1rem;
 }
 
 .service-details p {
@@ -162,29 +163,29 @@ h6,
 .detail-list {
 }
 
-.detail-list div {
-    padding: 0.5rem;
-    text-align: center;
-}
-
-    .detail-list div a {
-        color: var(--color-secondary);
-        width: 100%;
-        display: block;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+    .detail-list div {
+        padding: 0.5rem;
+        text-align: center;
     }
 
-        .detail-list div a:hover {
-            color: var(--color-primary);
+        .detail-list div a {
+            color: var(--color-secondary);
+            width: 100%;
+            display: block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
-    .detail-list div .active {
-        color: var(--color-primary);
-        border-bottom: 2px solid var(--color-secondary);
-    }
+            .detail-list div a:hover {
+                color: var(--color-primary);
+            }
 
-        .detail-list div .active:hover {
+        .detail-list div .active {
             color: var(--color-primary);
+            border-bottom: 2px solid var(--color-secondary);
         }
+
+            .detail-list div .active:hover {
+                color: var(--color-primary);
+            }

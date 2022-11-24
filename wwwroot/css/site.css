@@ -4,10 +4,35 @@
 :root {
     --color-default: #364d59;
     --color-primary: #ff6780;
-    --color-secondary: #262626;
+    --color-secondary: #8c5c22;
+    /*--color-secondary: #8c5c22;*/
     --font-primary: "Montserrat", sans-serif;
     --font-secondary: font-family: "Charm";
 }
+
+/* width */
+::-webkit-scrollbar {
+    background-color: hsla(235, 21%, 11%, 0.322);
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: hsla(235, 21%, 11%, 0.322);
+    box-shadow: 0 0 3px hsl(235, 21%, 11%);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-secondary);
+    }
 
 *, .fw-montserrat {
     font-family: "Montserrat", sans-serif;
@@ -17,8 +42,7 @@
     color: var(--color-primary) !important;
 }
 
-.
-primary-secondary {
+.secondary-color {
     color: var(--color-secondary) !important;
 }
 
@@ -65,6 +89,11 @@ a {
         color: var(--color-secondary);
         text-decoration: none;
     }
+
+.aunty-b {
+    font-weight: 600;
+    color: var(--color-secondary);
+}
 
 /*--------------------------------------------------------------
 # Preloader
@@ -191,10 +220,10 @@ a {
     color: var(--color-secondary);
 }
 
-#topbar .contact-info i span a {
-    padding-left: 5px;
-    color: var(--color-secondary) !important;
-}
+    #topbar .contact-info i span a {
+        padding-left: 5px;
+        color: var(--color-secondary) !important;
+    }
 
     #topbar .contact-info i span a {
         padding-left: 5px;
@@ -316,6 +345,7 @@ a {
 
     .navbar li {
         position: relative;
+        font-weight: 600;
     }
 
     .navbar a,
@@ -1228,7 +1258,7 @@ section {
     }
 
         .testimonials .testimonial-item .stars i {
-            color: #ffc107;
+            color: var(--color-secondary);
             margin: 0 1px;
         }
 
@@ -1403,7 +1433,7 @@ section {
         opacity: 1;
     }
 
-    .projects .portfolio-content:hover img {
+    .projects .portfolio-content:hover {
         transform: scale(1.1);
     }
 
@@ -1540,6 +1570,7 @@ section {
     .cta .content h3 {
         font-weight: 600;
         font-size: 26px;
+        padding-bottom: 1.5rem;
     }
 
 @media (min-width: 1024px) {
