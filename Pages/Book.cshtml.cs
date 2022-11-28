@@ -19,7 +19,10 @@ namespace AuntyBCompere.Pages
 
         public async Task OnGetAsync( )
         {
-            Booking.Services = await _context.Services.ToListAsync();
+            _context.SaveChanges();
+
+            Booking.Services = await _context.Services
+                            .ToListAsync();
         }
 
         public async Task<IActionResult> OnPostAsync( )
@@ -28,8 +31,8 @@ namespace AuntyBCompere.Pages
             {
                 return Page();
             }
-            
-            if(!Booking.Services.Any(x => x.IsSelected))
+
+            if (!Booking.Services.Any(x => x.IsSelected))
             {
                 ModelState.AddModelError("serviceListError", "Please select at least one service.");
                 return Page();
@@ -37,7 +40,7 @@ namespace AuntyBCompere.Pages
 
             await _context.AddAsync(Booking);
             var bookingServices = Booking.Services.Where(x => x.IsSelected)
-                .Select(x => new BookingService {Booking = Booking, ServiceId = x.Id});
+                .Select(x => new BookingService { Booking = Booking, ServiceId = x.Id });
             await _context.AddRangeAsync(bookingServices);
 
             await _context.SaveChangesAsync();

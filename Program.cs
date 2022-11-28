@@ -11,6 +11,8 @@ builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeFolder("/Testimonials");
     options.Conventions.AuthorizeFolder("/Users");
+    options.Conventions.AllowAnonymousToPage("/Testimonials/Index");
+    options.Conventions.AllowAnonymousToPage("/Testimonials/Create");
 
     //options.Conventions.AllowAnonymousToFolder("/Private/PublicPages");
 });

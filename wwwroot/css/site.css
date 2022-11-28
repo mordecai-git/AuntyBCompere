@@ -1167,7 +1167,7 @@ section {
 }
 
     .btn-primary:hover {
-        color: var(--bs-btn-hover-color);
+        color: #fff !important;
         background-color: var(--color-secondary);
         border-color: var(--color-secondary);
     }
@@ -1179,11 +1179,17 @@ section {
     }
 
     .btn-primary:focus-visible {
-        color: var(--bs-btn-hover-color);
+        color: #fff !important;
         background-color: var(--color-secondary);
         border-color: var(--color-secondary);
         outline: 0;
         box-shadow: var(--color-secondary);
+    }
+
+    .btn-primary.disabled, .btn-primary:disabled {
+        color: #fff;
+        background-color: var(--color-secondary) !important;
+        border-color: var(--color-secondary) !important;
     }
 
 .get-started .php-email-form button[type=submit]:hover {

@@ -6,48 +6,46 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\animate.css\**" />
+    <Compile Remove="wwwroot\lib\bootstrap\**" />
+    <Compile Remove="wwwroot\lib\glightbox\**" />
+    <Compile Remove="wwwroot\lib\isotope-layout\**" />
+    <Content Remove="wwwroot\lib\animate.css\**" />
+    <Content Remove="wwwroot\lib\bootstrap\**" />
+    <Content Remove="wwwroot\lib\glightbox\**" />
+    <Content Remove="wwwroot\lib\isotope-layout\**" />
+    <EmbeddedResource Remove="wwwroot\lib\animate.css\**" />
+    <EmbeddedResource Remove="wwwroot\lib\bootstrap\**" />
+    <EmbeddedResource Remove="wwwroot\lib\glightbox\**" />
+    <EmbeddedResource Remove="wwwroot\lib\isotope-layout\**" />
+    <None Remove="wwwroot\lib\animate.css\**" />
+    <None Remove="wwwroot\lib\bootstrap\**" />
+    <None Remove="wwwroot\lib\glightbox\**" />
+    <None Remove="wwwroot\lib\isotope-layout\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Pages\ServiceDetails.cshtml.cs" />
     <Compile Remove="Pages\Services.cshtml.cs" />
+    <Compile Remove="Pages\Testimonials\Delete.cshtml.cs" />
+    <Compile Remove="Pages\Testimonials\Details.cshtml.cs" />
+    <Compile Remove="Pages\Testimonials\Edit.cshtml.cs" />
+    <Compile Remove="Pages\Testimonials\List.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Pages\ServiceDetails.cshtml" />
     <Content Remove="Pages\Services.cshtml" />
+    <Content Remove="Pages\Testimonials\Delete.cshtml" />
+    <Content Remove="Pages\Testimonials\Details.cshtml" />
+    <Content Remove="Pages\Testimonials\Edit.cshtml" />
+    <Content Remove="Pages\Testimonials\List.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\Shared\_Layout.cshtml" />
     <None Include="Pages\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="wwwroot\js\site.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
-    <None Include="wwwroot\lib\bootstrap\LICENSE" />
     <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
     <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
     <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
@@ -58,6 +56,14 @@
     <None Include="wwwroot\lib\jquery\dist\jquery.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.esm.js" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.jquery.js" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.jquery.min.js" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.js" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.legacy.js" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.legacy.min.js" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.min.js" />
+    <None Include="wwwroot\lib\simple-lightbox\dist\simple-lightbox.modules.js" />
   </ItemGroup>
 
   <ItemGroup>

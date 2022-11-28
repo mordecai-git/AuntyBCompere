@@ -7,6 +7,7 @@
 }
 
 <link rel="stylesheet" href="~/css/service-details.css" asp-append-version="true" />
+<link href="~/lib/lightbox/lightboxed.css" rel="stylesheet">
 
 <!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/img/breadcrumbs-bg.jpg');">
@@ -60,119 +61,25 @@
     </div>
 </section><!-- End Service Details Section -->
 <!-- ======= CTA Section ======= -->
-<section id="cta" class="cta">
-    <div class="container" data-aos="fade-up">
-        <div class="row text-white">
-            <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content text-center">
-                <h3>We Make Flawless Event</h3>
-                <a href="/book" class="btn-primary mt-4 px-5 fw-600">BOOK AN APPOINTMENT NOW</a>
-            </div>
-        </div>
-    </div>
-</section>
+<partial name="~/Pages/Partials/_CTA.cshtml" />
 <!-- End CTA Section -->
+
+
+<div id="gallery-section"></div>
+
 <!-- ======= Testimonials Section ======= -->
-<section id="testimonials" class="testimonials section-bg">
-    <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-            <h2>Testimonials</h2>
-            <p>See What Our Amazing Clients Say About Us; You Will Be Stunned</p>
-        </div>
-
-        <div class="testimonials-slider swiper">
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                In June 2021, I attended a program hosted by Aunty 'B' Compere. The professionalism and elegance displayed intrigued me so much that I became hooked Therefore in January 2022 when my daughther clocked 3, it was Aunty 'B' I invited to host .and as usual herr performance was top notch, above par and excellent.
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                Aunty 'B' Compere is a household name when it comes to compere.
-                                She took charge at 50th Birthday and  book Presentation of 34 Things Great Couples do and others Struggle with on the 1st of June 2014 in Ibadan, Nigeria.
-
-                                The event was well coordinated; it was placid, humorous and full of good memories and left a good taste in people.
-
-                                I recommend her for any of your events, whether it's children's or adults, formal or informal. You can be sure she will be at home with any one of them.
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                Aunty 'B' compere is the  best , I always enjoy her program everything . I went to MD for my sister son one year birthday. She so performs so many wonderful job. Keep it up
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Oluwaseun</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                I have known Aunty'B'Compere for over two decades when we were young girls, she is coordinated and always on point.
-                                In 2013 we needed someone to organize a regional program to celebrate children at my office (Diamond Bank) on children's day and this was given to Aunty'B'Compere to plan. She did a great job in planning the event, recommended a great venue and all logistics were handled by her. All the children had fun and had a great time at the event. I will recommend Aunty'B'Compere for any event planning, logistics, MC , games etc. Oluwaseun Area Sales Mgr
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                I attended a friend’s baby shower party anchored by Aunty'B'Compere. The party was so much fun that my friend had to let her handle her daughter’s first year birthday party. Both the parents and the kids were entertained and I’m convinced that’s henceforth Aunty'B'Compere will always be part of my event. Thank you for a great job ma’am and I will surely recommend Aunty'B'Compere for any event if you want to have an unforgettable day!
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-
-    </div>
-</section>
+@await Html.PartialAsync("~/Pages/Partials/_Testimonials.cshtml", Model.Testimonials)
 <!-- End Testimonials Section -->
+
+
+
+@section Scripts {
+    <script src="~/lib/lightbox/lightboxed.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#gallery-section')
+                .load('@Url.Content("~/services/details")?handler=GalleryImages&id=@Model.Service.Id');
+        });
+    </script>
+}

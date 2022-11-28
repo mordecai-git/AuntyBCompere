@@ -6,14 +6,18 @@
 }
 
 <style>
-    #topbar .contact-info i span {
-        color: #fff;
-    }
-
-        #topbar .contact-info i span a {
-            color: #fff !important;
+        #topbar .contact-info i span {
+            color: #fff;
         }
+
+            #topbar .contact-info i span a {
+                color: #fff !important;
+            }
+
+   
 </style>
+
+<link href="~/lib/lightbox/lightboxed.css" rel="stylesheet">
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -81,79 +85,7 @@
     </div>
 </section><!-- End About Section -->
 <!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
-    <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-            <h2>Services</h2>
-            <p>Let's Plan or Host Your Event To Perfection</p>
-        </div>
-
-        <div class="row gy-4">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-item  position-relative">
-                    <div class="icon">
-                        <i class="fa-solid fa-camera-retro"></i>
-                    </div>
-                    <h3>Event MC/Compere</h3>
-                    <p>
-                        Having to deal with people and create an environment that fits the occasion can be a whole lot but NOT with <span class="aunty-b">Aunty 'B' Compere.</span> She is a professional who has emceed all kinds of events in different parts of the world.
-                    </p>
-                    <a asp-page="/services/details" asp-route-id="1" class="readmore stretched-link">
-                        Learn more <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div><!-- End Service Item -->
-
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fa-solid fa-microscope"></i>
-                    </div>
-                    <h3>Alaga Iduro/Ijoko</h3>
-                    <p>
-                        <span class="fw-600">(African Traditional Weddings)</span> <br />
-                        African traditional weddings are great due to the different aspects that they entail, such as alaga iduro/ijoko, aso ebi, groom prostration, eru iyawo packaging, dowry, and so on.
-                    </p>
-                    <a asp-page="/services/details" asp-route-id="2" class="readmore stretched-link">
-                        Learn more <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div><!-- End Service Item -->
-
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                    <h3>Clowning and Costuming</h3>
-                    <p>
-                        Clowns bring a lot of colour and fun to parades, community gatherings, and commercial efforts. Clowns interact with the audience by waving, performing antics, and personally engaging both children and adults.
-                    </p>
-                    <a asp-page="/services/details" asp-route-id="3" class="readmore stretched-link">
-                        Learn more <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div><!-- End Service Item -->
-
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fa-solid fa-mountain-city"></i>
-                    </div>
-                    <h3>Trainings</h3>
-                    <p>
-                        Public speaking can make or break your career. It can also help you get ahead in life if done properly. <span class="aunty-b">Aunty 'B'</span> has been training people from all walks of life in public speaking for over 15 years and has helped them achieve their goals through this skill.
-                    </p>
-                    <a asp-page="/services/details" asp-route-id="4" class="readmore stretched-link">
-                        Learn more <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div><!-- End Service Item -->
-        </div>
-
-    </div>
-</section>
+<partial name="~/Pages/Partials/_ServiceList.cshtml" />
 <!-- End Services Section -->
 <!-- ======= Get Started Section ======= -->
 <section id="get-started" class="get-started">
@@ -216,286 +148,21 @@
     </div>
 </section><!-- End Get Started Section -->
 <!-- ======= Testimonials Section ======= -->
-<section id="testimonials" class="testimonials section-bg">
-    <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-            <h2>Testimonials</h2>
-            <p>See What Our Amazing Clients Say About Us; You Will Be Stunned</p>
-        </div>
-
-        <div class="testimonials-slider swiper">
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                In June 2021, I attended a program hosted by Aunty 'B' Compere. The professionalism and elegance displayed intrigued me so much that I became hooked Therefore in January 2022 when my daughther clocked 3, it was Aunty 'B' I invited to host .and as usual herr performance was top notch, above par and excellent.
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                Aunty 'B' Compere is a household name when it comes to compere.
-                                She took charge at 50th Birthday and  book Presentation of 34 Things Great Couples do and others Struggle with on the 1st of June 2014 in Ibadan, Nigeria.
-
-                                The event was well coordinated; it was placid, humorous and full of good memories and left a good taste in people.
-
-                                I recommend her for any of your events, whether it's children's or adults, formal or informal. You can be sure she will be at home with any one of them.
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                Aunty 'B' compere is the  best , I always enjoy her program everything . I went to MD for my sister son one year birthday. She so performs so many wonderful job. Keep it up
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Oluwaseun</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                I have known Aunty'B'Compere for over two decades when we were young girls, she is coordinated and always on point.
-                                In 2013 we needed someone to organize a regional program to celebrate children at my office (Diamond Bank) on children's day and this was given to Aunty'B'Compere to plan. She did a great job in planning the event, recommended a great venue and all logistics were handled by her. All the children had fun and had a great time at the event. I will recommend Aunty'B'Compere for any event planning, logistics, MC , games etc. Oluwaseun Area Sales Mgr
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                            <h3>Jane Doe</h3>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                I attended a friend’s baby shower party anchored by Aunty'B'Compere. The party was so much fun that my friend had to let her handle her daughter’s first year birthday party. Both the parents and the kids were entertained and I’m convinced that’s henceforth Aunty'B'Compere will always be part of my event. Thank you for a great job ma’am and I will surely recommend Aunty'B'Compere for any event if you want to have an unforgettable day!
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-
-    </div>
-</section>
+@await Html.PartialAsync("~/Pages/Partials/_Testimonials.cshtml", Model.Testimonials)
+@*<partial name="~/Pages/Partials/_Testimonials.cshtml" />*@
 <!-- End Testimonials Section -->
 <!-- ======= Our Projects Section ======= -->
-<section id="projects" class="projects">
-    <div class="container" data-aos="fade-up">
+<div id="gallery-section"></div>
+@*<partial name="~/Pages/Partials/_Gallery.cshtml" />*@
+<!-- End Our Projects Section -->
 
-        <div class="section-header">
-            <h2>Exclusive Events by Aunty 'B' Compere</h2>
-            <p>
-                Feed your eyes with some goodness as you slide through our works. Let the pictures do the talking.
-            </p>
-        </div>
+@section Scripts {
+    <script src="~/lib/lightbox/lightboxed.js"></script>
 
-        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
-
-            @* <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-remodeling">Remodeling</li>
-            <li data-filter=".filter-construction">Construction</li>
-            <li data-filter=".filter-repairs">Repairs</li>
-            <li data-filter=".filter-design">Design</li>
-            </ul><!-- End Projects Filters -->*@
-
-            <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                    <div class="portfolio-content h-100" style="background: url(img/projects/1.jpg); background-size: cover;">
-                        <img src="~/img/projects/1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            @*<h4>Event 1</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/1.jpg"
-                            data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link">
-                                <i class="bi bi-zoom-in"></i>
-                            </a>
-                           @* <a href="" title="More Details" class="details-link">
-                                <i class="bi bi-link-45deg"></i>
-                            </a>*@
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/2.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                           @* <h4>Event 2</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/2.jpg" data-gallery="portfolio-gallery-construction" 
-                            class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/3.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                           @* <h4>Event 3</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/3.jpg" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/4.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            @*<h4>Event 4</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/4.jpg" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/5.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                         @*   <h4>Event 5</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/5.jpg" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/6.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            @*<h4>Event 6</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/6.jpg" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/7.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                           @* <h4>Event 6</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/7.jpg" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/8.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            @*<h4>Event 6</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/8.jpg"  data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/9.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            @*<h4>Event 6</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/9.jpg"  data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/10.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            @*<h4>Event 6</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/10.jpg"  data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/12.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            @*<h4>Event 6</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/11.jpg"  data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="~/img/projects/12.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                          @*  <h4>Event 6</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>*@
-                            <a href="~/img/projects/12.jpg"  data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            
-                        </div>
-                    </div>
-                </div><!-- End Projects Item -->
-
-            </div><!-- End Projects Container -->
-
-        </div>
-
-    </div>
-</section><!-- End Our Projects Section -->
+    <script>
+        $(document).ready(function() {
+            $('#gallery-section')
+                        .load('@Url.Content("~/index")?handler=Gallery');
+        });
+    </script>
+}

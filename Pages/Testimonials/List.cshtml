@@ -1,0 +1,70 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-12">
+    <div class="card recent-sales overflow-auto">
+        <div class="row m-4">
+            <div class="col">
+                <h2>Testimonials</h2>
+            </div>
+            <div class="col text-end">
+                <a href="/testimonials/create" class="btn btn-primary">
+                    Create New
+                </a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="table table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Testimonial[0].Name)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Testimonial[0].Rating)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Testimonial[0].Service)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Testimonial[0].Content)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Testimonial[0].DateCreated)
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.Testimonial)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rating)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Service.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Content)
+                            </td>
+                            <td>
+                                @item.DateCreated.ToString("dd MMM, yyyy.")
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

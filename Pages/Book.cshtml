@@ -27,6 +27,7 @@
         <div class="row mx-3">
             <div class="col-12 ps-0">
                 <label class="form-label fw-bold form-title">Select The Services</label>
+                <span class="secondary-color"><em>(Select as many as needed)</em></span>
             </div>
             <div class="col-12">
                 <div class="custom-question row" id="serviceListInput">
@@ -35,14 +36,11 @@
                         @Html.HiddenFor(m => m.Booking.Services[i].Id)
                         <div class="col-lg-6 col-12 mb-3 px-lg-3">
                             @Html.CheckBoxFor(m => m.Booking.Services[i].IsSelected, new { @class = ""})
-                            @*<input asp-for="Booking.Test" type="checkbox"
-                        value="@service.Id" id="@($"service{service.Id}")" required />*@
                             <label for="@($"service{Model.Booking.Services[i].Id}")" class="shadow-lg rounded">
                                 <i class="fa-regular fa-circle"></i> &nbsp; &nbsp; @Model.Booking.Services[i].Name
                             </label>
                         </div>
                     }
-                    @*<span asp-validation-for="" class="text-danger fw-600"></span>*@
                    @Html.ValidationMessage("serviceListError", new { @class = "text-danger"})
                 </div>
             </div>
@@ -169,7 +167,7 @@
             </div>
 
             <div class="col-12 ps-0 mt-5 text-center">
-                <input type="submit" class="btn btn-primary px-5" value="Book Now" />
+                <input type="submit" class="btn btn-primary px-5" value="Book Now" id="submitBtn" />
             </div>
         </div>
     </form>
@@ -208,12 +206,9 @@
                 id: "#color-calendar",
                 calendarSize: "small",
                 dateChanged: (currentDate, events) => {
-                    //console.log("date change: ", currentDate);
-                    //console.log('type of date: ', typeof(currentDate));
                     selectedDate = currentDate;
                 },
                 monthChanged: (currentDate, events) => {
-                    //console.log("month change", currentDate, events);
                     selectedDate = currentDate;
                 }
             });
@@ -229,14 +224,10 @@
                 $('#Booking_DateBooked').val(`${selectedDateAndTime.toISOString().substring(0, 10)} ${hour}:00:00`);
             });
 
-            //$("#submitBtn").click(function(){
-            //    $("#myForm").submit(); // Submit the form
-            //});
-
             $('#bookingForm').submit(function(e) {
                 e.preventDefault();
 
-                $("#bookingForm").attr("disabled", true);
+                $("#submitBtn").attr("disabled", true);
                 this.submit();
             });
 

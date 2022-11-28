@@ -1,0 +1,46 @@
+﻿@model List<string>
+@{
+
+}
+
+<style>
+    .gallery img {
+        object-fit: cover;
+        border-radius: 5px;
+        float: left;
+        height: auto;
+        max-height: 350px;
+        border: 2px solid #fff;
+        -webkit-transition: -webkit-transform .15s ease;
+        -moz-transition: -moz-transform .15s ease;
+        -o-transition: -o-transform .15s ease;
+        -ms-transition: -ms-transform .15s ease;
+        transition: transform .15s ease;
+        position: relative;
+    }
+</style>
+
+<section id="projects" class="projects">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Exclusive Events by Aunty 'B' Compere</h2>
+            <p>
+                Feed your eyes with some goodness as you slide through our works. Let the pictures do the talking.
+            </p>
+        </div>
+
+        <div class="gallery row">
+            @foreach(var imgSrc in Model)
+            {
+                <img class="lightboxed col-md-4 col-sm-6 col-6"
+                    rel="group1"
+                    src="~/@imgSrc"
+                    data-link="/@imgSrc"
+                    alt=""
+                    data-caption="Image 1" />
+            }
+        </div>
+    </div>
+</section>
+

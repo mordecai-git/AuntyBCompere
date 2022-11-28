@@ -154,28 +154,47 @@ namespace AuntyBCompere.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("Country")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Position")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("ServiceId")
+                    b.Property<int>("Rating")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.ToTable("Testimonial", (string)null);
+                });
+
+            modelBuilder.Entity("AuntyBCompere.Models.Data.TestimonialService", b =>
+                {
+                    b.Property<int>("TestimonialId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TestimonialId", "ServiceId");
+
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("Testimonial", (string)null);
+                    b.ToTable("TestimonialService", (string)null);
                 });
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.User", b =>
@@ -250,15 +269,23 @@ namespace AuntyBCompere.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("AuntyBCompere.Models.Data.Testimonial", b =>
+            modelBuilder.Entity("AuntyBCompere.Models.Data.TestimonialService", b =>
                 {
                     b.HasOne("AuntyBCompere.Models.Data.Service", "Service")
-                        .WithMany("Testimonials")
+                        .WithMany()
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AuntyBCompere.Models.Data.Testimonial", "Testimonial")
+                        .WithMany()
+                        .HasForeignKey("TestimonialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Service");
+
+                    b.Navigation("Testimonial");
                 });
 
             modelBuilder.Entity("AuntyBCompere.Models.Data.Booking", b =>
@@ -271,8 +298,6 @@ namespace AuntyBCompere.Migrations
                     b.Navigation("BookingServices");
 
                     b.Navigation("Galleries");
-
-                    b.Navigation("Testimonials");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AuntyBCompere.Models.Data.Testimonial>
+
+
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Testimonials</h2>
+            <p>See What Our Amazing Clients Say About Us; You Will Be Stunned</p>
+        </div>
+
+        <div class="testimonials-slider swiper">
+            <div class="swiper-wrapper">
+
+                @foreach(var item in Model)
+                {
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <h3>@item.Name</h3>
+                                <h4>@item.Country</h4>
+                                <div class="stars">
+                                    @for (int i = 1; i <= item.Rating; i++)
+                                    {
+                                        <i class="bi bi-star-fill"></i>
+                                    }
+
+                                    @if (5 - item.Rating != 0)
+                                    {
+                                        for (int i = 1; i <= 5 - item.Rating; i++)
+                                        {
+                                            <i class="bi bi-star"></i>
+                                        }
+                                    }
+                                </div>
+                                <p>
+                                    @item.Content
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="text-center">
+                <a href="/testimonials" class="btn btn-primary btn-sm px-5 mt-5">View More</a>
+            </div>
+        </div>
+
+    </div>
+</section>

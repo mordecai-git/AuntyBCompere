@@ -1,9 +1,3 @@
-/**
-* Template Name: Restaurantly - v3.9.1
-* Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
 
@@ -203,13 +197,6 @@
   });
 
   /**
-   * Initiate glightbox 
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
    * Events slider
    */
   new Swiper('.events-slider', {
@@ -254,13 +241,6 @@
         spaceBetween: 20
       }
     }
-  });
-
-  /**
-   * Initiate gallery lightbox 
-   */
-  const galleryLightbox = GLightbox({
-    selector: '.gallery-lightbox'
   });
 
   /**

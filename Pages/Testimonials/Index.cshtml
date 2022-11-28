@@ -1,127 +1,96 @@
 ﻿@page
 @model IndexModel
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Testimonials";
+    ViewData["page-name"] = "testimonials";
 }
 
+<style>
+    .item h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0 5px 0;
+        color: #000;
+    }
 
-<!-- Recent Sales -->
-<div class="col-12">
-    <div class="card recent-sales overflow-auto">
-        <div class="row m-4">
-            <div class="col">
-                <h2>Testimonials</h2>
-            </div>
-            <div class="col text-end">
-                <a href="/testimonials/create" class="btn btn-primary">
-                    Create New
-                </a>
-            </div>
-        </div>
+    .item h4 {
+        font-size: 14px;
+        color: #999;
+        margin: 0;
+    }
 
-        <div class="card-body">
-            <div class="table table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Testimonial[0].Name)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Testimonial[0].Position)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Testimonial[0].Service)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Testimonial[0].Content)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Testimonial[0].DateCreated)
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach (var item in Model.Testimonial)
-                    {
-                        <tr>
-                            <th>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </th>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Position)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Service.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Content)
-                            </td>
-                            <td>
-                                @item.DateCreated.ToString("dd MMM, yyyy.")
-                            </td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    .item h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+    }
+
+    .item .stars {
+        margin: 10px 0;
+    }
+
+        .item .stars i {
+            color: var(--color-secondary);
+            margin: 0 1px;
+        }
+</style>
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Testimonials</h2>
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>Testimonials</li>
+        </ol>
 
     </div>
 </div>
-<!-- End Recent Sales -->
-@*
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Testimonial[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Testimonial[0].Position)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Testimonial[0].Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Testimonial[0].DateCreated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Testimonial[0].Service)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Testimonial)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Position)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Content)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateCreated)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Service.Name)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-*@
+<!-- End Breadcrumbs -->
+
+
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Testimonials</h2>
+            <p>See What Our Amazing Clients Say About Us; You Will Be Stunned</p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model.Testimonials)
+            {
+                <div class="col-lg-6 col-12 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body p-5 item">
+                            <h3>@item.Name</h3>
+                            <h4>@item.Country</h4>
+                            <div class="stars">
+                                @for (int i = 1; i <= item.Rating; i++)
+                                {
+                                    <i class="bi bi-star-fill"></i>
+                                }
+
+                                @if (5 - item.Rating != 0)
+                                {
+                                    for (int i = 1; i <= 5 - item.Rating; i++)
+                                    {
+                                        <i class="bi bi-star"></i>
+                                    }
+                                }
+                            </div>
+                            <p>
+                                @item.Content
+                            </p>
+                            @*<h6>Service: @item.Service.Name <a href="/book">Book Now</a></h6>*@
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-12 mt-4 text-center" id="bottom">
+                <p>Aunty 'B' Compere has treated you well? <span><a href="testimonials/create">Click Here</a></span> to share your experience now.</p>
+                <a href="testimonials/create" class="btn btn-primary float-right">Add Your Testimony</a>
+            </div>
+        </div>
+    </div>
+</section>

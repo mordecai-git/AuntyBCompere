@@ -19,7 +19,6 @@ public class Service
     public string Content { get; set; }
     public bool IsStandard { get; set; }
 
-    public ICollection<Testimonial> Testimonials { get; set; }
     public ICollection<Gallery> Galleries { get; set; }
     public ICollection<BookingService> BookingServices { get; set; }
 
