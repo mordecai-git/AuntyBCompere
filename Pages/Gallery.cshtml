@@ -43,7 +43,7 @@
 </div>
 <!-- End Breadcrumbs -->
 
-<section id="projects" class="projects features">
+<section id="gallery" class="gallery features">
     <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -55,30 +55,36 @@
 
         <ul class="nav nav-tabs row g-2 d-flex">
 
-            <li class="nav-item col-sm-2 col-12">
+            <li class="nav-item col-md-4 col-sm-2 col-6 mt-3">
                 <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-all">
                     <h4>All</h4>
                 </a>
             </li><!-- End tab nav item -->
 
-            <li class="nav-item col-sm-2 col-6">
+            <li class="nav-item col-md-4 col-sm-2 col-6 mt-3">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-1">
                     <h4>Event MC/Compere</h4>
                 </a>
             </li><!-- End tab nav item -->
 
-            <li class="nav-item col-sm-3 col-6">
+            <li class="nav-item col-md-4 col-sm-2 col-6 mt-3">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-10">
+                    <h4>Wedding Officiant</h4>
+                </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item col-md-4 col-sm-2 col-6 mt-3">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
                     <h4>Alaga Iduro/Ijoko</h4>
                 </a><!-- End tab nav item -->
 
-            <li class="nav-item col-sm-3 col-6">
+            <li class="nav-item col-md-4 col-sm-2 col-6 mt-3">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
                     <h4>Clowning and Costuming</h4>
                 </a>
             </li><!-- End tab nav item -->
 
-            <li class="nav-item col-sm-2 col-6">
+            <li class="nav-item col-md-4 col-sm-2 col-6 mt-3">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
                     <h4>Trainings</h4>
                 </a>
@@ -90,25 +96,31 @@
 
             <div class="tab-pane active show" id="tab-all">
                 <div class="gallery gallery-all row">
-                    @foreach (var imgSrc in Model.AlagaIduro.OrderBy(a => Guid.NewGuid()))
+                    @foreach (var imgSrc in Model.AlagaIduro)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
                         </a>
                     }
-                    @foreach(var imgSrc in Model.MCCompere.OrderBy(a => Guid.NewGuid()))
+                    @foreach(var imgSrc in Model.MCCompere)
+                    {
+                        <a href="@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
+                            <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
+                        </a>
+                    }
+                    @foreach (var imgSrc in Model.WeddingOfficiant)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
                         </a>
                     }
-                    @foreach (var imgSrc in Model.Clown.OrderBy(a => Guid.NewGuid()))
+                    @foreach (var imgSrc in Model.Clown)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
                         </a>
                     }
-                    @foreach (var imgSrc in Model.Training.OrderBy(a => Guid.NewGuid()))
+                    @foreach (var imgSrc in Model.Training)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
@@ -117,9 +129,20 @@
                 </div>  
             </div>
 
-            <div class="tab-pane active show" id="tab-1">
+            <div class="tab-pane" id="tab-1">
                 <div class="gallery gallery-1 row">
-                    @foreach(var imgSrc in Model.MCCompere.OrderBy(a => Guid.NewGuid()))
+                    @foreach(var imgSrc in Model.MCCompere)
+                    {
+                        <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
+                            <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
+                        </a>
+                    }
+                </div>  
+            </div>
+
+            <div class="tab-pane" id="tab-10">
+                <div class="gallery gallery-10 row">
+                    @foreach (var imgSrc in Model.WeddingOfficiant)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
@@ -130,7 +153,7 @@
 
             <div class="tab-pane" id="tab-2">
                 <div class="gallery gallery-2 row">
-                    @foreach (var imgSrc in Model.AlagaIduro.OrderBy(a => Guid.NewGuid()))
+                    @foreach (var imgSrc in Model.AlagaIduro)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
@@ -141,7 +164,7 @@
 
             <div class="tab-pane" id="tab-3">
                 <div class="gallery gallery-3 row">
-                    @foreach (var imgSrc in Model.Clown.OrderBy(a => Guid.NewGuid()))
+                    @foreach (var imgSrc in Model.Clown)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
@@ -152,7 +175,7 @@
 
             <div class="tab-pane" id="tab-4">
                 <div class="gallery gallery-4 row">
-                    @foreach (var imgSrc in Model.Training.OrderBy(a => Guid.NewGuid()))
+                    @foreach (var imgSrc in Model.Training)
                     {
                         <a href="~/@imgSrc" class="col-md-4 col-sm-6 col-6 p-0">
                             <img alt="" src="img/loading.gif" onload="this.onload=null;this.src='@imgSrc'" />
@@ -174,6 +197,9 @@
                 spinner: true
             });
             var gallery1 = $('.gallery-1 a').simpleLightbox({
+                spinner: true
+            });
+            var gallery1 = $('.gallery-10 a').simpleLightbox({
                 spinner: true
             });
             var gallery2 = $('.gallery-2 a').simpleLightbox({

@@ -1,0 +1,49 @@
+﻿@page
+@model AuntyBCompere.Pages.Admin.ServicesModel
+@{
+    ViewData["Title"] = "Services";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/r-2.4.0/sc-2.0.7/sl-1.5.0/datatables.min.css" />
+
+<table id="bookingTable" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Tagline</th>
+            <th>Summary</th>
+            <th>Is Standard</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Services)
+        {
+            <tr>
+                <td>@book.Name</td>
+                <td>@book.Tagline</td>
+                <td>@book.Summary</td>
+                @if (book.IsStandard)
+                {
+                    <td>True</td>
+                } else
+                {
+                    <td>False</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/r-2.4.0/sc-2.0.7/sl-1.5.0/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#bookingTable').DataTable({
+                paging: true,
+                ordering: true,
+                info: true,
+            });
+        });
+    </script>
+}

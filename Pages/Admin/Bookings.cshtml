@@ -1,0 +1,60 @@
+﻿@page
+@model AuntyBCompere.Pages.Admin.BookingsModel
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/r-2.4.0/sc-2.0.7/sl-1.5.0/datatables.min.css" />
+
+<table id="bookingTable" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Services</th>
+            <th>Notes</th>
+            <th>Date Booked</th>
+            <th>Created On</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Bookings)
+        {
+            <tr>
+                <td>@book.Name</td>
+                <td>@book.Email</td>
+                <td>@book.Phone</td>
+                <td>@(string.Join(", ", book.ServicesBooked))</td>
+                <td>@book.Notes</td>
+                <td>@book.DateBooked.ToString("dd MMM, yyyy. hh:mm tt")</td>
+                <td>@book.DateCreated.ToString("dd MMM, yyyy. hh:mm tt")</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Services</th>
+            <th>Notes</th>
+            <th>Date Booked</th>
+            <th>Created On</th>
+        </tr>
+    </tfoot>
+</table>
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/r-2.4.0/sc-2.0.7/sl-1.5.0/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#bookingTable').DataTable({
+                paging: true,
+                ordering: false,
+                info: true,
+            });
+        });
+    </script>
+}

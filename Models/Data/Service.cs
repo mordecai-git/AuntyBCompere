@@ -21,6 +21,7 @@ public class Service
 
     public ICollection<Gallery> Galleries { get; set; }
     public ICollection<BookingService> BookingServices { get; set; }
+    public ICollection<TestimonialService> TestimonialServices { get; set; }
 
 
     [NotMapped]

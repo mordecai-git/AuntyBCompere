@@ -9,6 +9,35 @@
 <link rel="stylesheet" href="~/css/service-details.css" asp-append-version="true" />
 <link href="~/lib/lightbox/lightboxed.css" rel="stylesheet">
 
+<style>
+    .service-header a {
+        display: inline;
+        padding: 10px 15px;
+        margin-top: 5px;
+    }
+
+    @@media(max-width: 990px){
+        .service-header a {
+            display: inline-block;
+            margin-top: 0;
+        }
+    }
+
+        .service-header a:hover {
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .service-header a.active {
+            background-color: var(--color-primary);
+        }
+
+        .service-header a.active {
+            color: #fff;
+            cursor: default;
+        }
+
+</style>
+
 <!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/img/breadcrumbs-bg.jpg');">
     <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
@@ -28,22 +57,19 @@
         <div class="row gy-4">
             <div class="col-12">
                 <div class="row detail-list mb-lg-5 mb-md-5 mb-3">
-                    <div class="col-md-3 col-6">
+                    <div class="service-header">
                         <a asp-page="/services/details" asp-route-id="1" class="@(Model.Service.Id == 1 ? "active" : "")">
                             Event MC/Compere
                         </a>
-                    </div>
-                    <div class="col-md-3 col-6">
                         <a asp-page="/services/details" asp-route-id="2" class="@(Model.Service.Id == 2 ? "active" : "")">
                             Alaga Iduro/Ijoko
                         </a>
-                    </div>
-                    <div class="col-md-3 col-6">
                         <a asp-page="/services/details" asp-route-id="3" class="@(Model.Service.Id == 3 ? "active" : "")">
                             Clowning and Costuming
                         </a>
-                    </div>
-                    <div class="col-md-3 col-6">
+                      @*  <a asp-page="/services/details" asp-route-id="10" class="@(Model.Service.Id == 10 ? "active" : "")">
+                            Wedding Officiant
+                        </a>*@
                         <a asp-page="/services/details" asp-route-id="4" class="@(Model.Service.Id == 4 ? "active" : "")">
                             Trainings
                         </a>
@@ -70,9 +96,6 @@
 <!-- ======= Testimonials Section ======= -->
 @await Html.PartialAsync("~/Pages/Partials/_Testimonials.cshtml", Model.Testimonials)
 <!-- End Testimonials Section -->
-
-
-
 @section Scripts {
     <script src="~/lib/lightbox/lightboxed.js"></script>
 

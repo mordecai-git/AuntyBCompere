@@ -38,7 +38,7 @@ public class CreateModel : PageModel
 
         if (!Testimonial.Services.Any(x => x.IsSelected))
         {
-            ModelState.AddModelError("serviceListError", "Please select at least one service.");
+            ModelState.AddModelError("serviceListError", "Please select at least one service from the list of services above.");
             invalid = true;
         }
         if (string.IsNullOrEmpty(Testimonial.Country) || Testimonial.Country == "-- select country --")

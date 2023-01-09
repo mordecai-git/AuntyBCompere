@@ -25,7 +25,11 @@ public class Testimonial
     [Range(1, 5, ErrorMessage = "Please rate Aunty 'B' Service")]
     public int Rating { get; set; }
 
-    public DateTime DateCreated { get; set; }
+    public DateTime DateCreated { get; set; } = DateTime.Now;
+
+    public bool IsActive { get; set; } = true;
+
+    public ICollection<TestimonialService> TestimonialServices { get; set; }
 
     [NotMapped]
     public List<Service> Services { get; set; }

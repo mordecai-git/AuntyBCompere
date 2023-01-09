@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AuntyBCompere.Models.Data.Gallery>
+
+@{
+    Layout = null;
+}
+
+<style>
+    .image-info {
+        padding: 10px;
+    }
+</style>
+
+<div class="row">
+    @if (!Model.Any())
+    {
+        <div class="text-center">
+            <h4 class="text-uppercase mt-3 mb-5">No Images here yet</h4>
+            <button type="button" id="uploadImagesButto" class="btn btn-primary" style="max-width: 400px;">Upload Image(s)</button>
+        </div>
+    }
+    @foreach (var image in Model)
+    {
+        <div class="col-md-4 col-12 mb-5 bg-white shadow">
+            <img src="~/@image.Url" class="img-fluid" alt="@image.Description" />
+            <div class="image-info">
+                <h5>@image.Name</h5>
+                <p>@image.Description</p>
+
+                <button class="btn btn-danger" onclick="deleteImage(@image.Id)">
+                    Delete
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+<script language="javascript">
+    $(document).ready(function () {
+        $('#uploadImagesButto').on('click', function () {
+            $('#addImageModal').modal('show');
+        });
+    });
+</script>

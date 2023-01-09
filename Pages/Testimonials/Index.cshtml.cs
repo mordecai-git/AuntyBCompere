@@ -23,16 +23,10 @@ public class IndexModel : PageModel
     {
         if (_context.Testimonials != null)
         {
-            Testimonials = await _context.Testimonials.ToListAsync();
-            //Testimonials = await _context.TestimonialServices
-            //    .GroupBy(x => x.Testimonial)
-            //    .AsEnumerable()
-            //    .Select(x => new TestimonialModel
-            //    {
-            //        Item = x.First().Testimonial,
-            //        Services = x.Select(s => s.Service.Name)
-            //    }).OrderBy(x => x.Item.DateCreated).ToList();
-                //.ToListAsync();
+            Testimonials = await _context.Testimonials
+                .Where(x => x.IsActive)
+                .OrderBy(x => x.DateCreated)
+                .ToListAsync();
         }
     }
 

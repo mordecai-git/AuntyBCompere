@@ -25,6 +25,18 @@ public class LoginModel : PageModel
 
     public async Task OnGetAsync()
     {
+        var us = new User
+        {
+            FirstName = "Aunty B",
+            LastName = "Compere", Username = "auntybcompere.events@gmail.com",
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword("aunty_B"),
+            DateCreated = DateTime.Now,
+            IsAdmin = true, IsSuperAdmin = false
+        };
+
+        _context.Add(us);
+        //_context.SaveChanges();
+
         // Clear the existing external cookie
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     }
@@ -64,7 +76,7 @@ public class LoginModel : PageModel
             CookieAuthenticationDefaults.AuthenticationScheme, 
             new ClaimsPrincipal(claimsIdentity));
 
-        return RedirectToPage("./Testimonials/Index");
+        return Redirect("/admin/bookings");
     }
 
     private async Task<User> AuthenticateUser(string username, string password)

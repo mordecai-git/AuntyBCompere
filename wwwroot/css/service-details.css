@@ -171,10 +171,7 @@ h6,
         .detail-list div a {
             color: var(--color-secondary);
             width: 100%;
-            display: block;
             white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
         }
 
             .detail-list div a:hover {
@@ -183,7 +180,6 @@ h6,
 
         .detail-list div .active {
             color: var(--color-primary);
-            border-bottom: 2px solid var(--color-secondary);
         }
 
             .detail-list div .active:hover {

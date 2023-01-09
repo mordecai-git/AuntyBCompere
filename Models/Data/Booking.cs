@@ -8,8 +8,6 @@ namespace AuntyBCompere.Models.Data
     {
         public int Id { get; set; }
 
-        //[Required(ErrorMessage = "Please select a service.")]
-        //public int ServiceId { get; set; }
 
         [Required(ErrorMessage = "Please select a date and time to book an appointment for.")]
         public DateTime DateBooked { get; set; } = DateTime.Now;
@@ -24,7 +22,6 @@ namespace AuntyBCompere.Models.Data
         public string Phone { get; set; }
         public string Notes { get; set; }
         public DateTime DateCreated { get; set; } = DateTime.Now;
-        public bool Test {get;set;}
 
         public ICollection<BookingService> BookingServices { get; set; }
 

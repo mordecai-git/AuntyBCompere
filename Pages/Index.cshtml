@@ -6,13 +6,13 @@
 }
 
 <style>
-        #topbar .contact-info i span {
-            color: #fff;
-        }
+    #topbar .contact-info i span {
+        color: #fff;
+    }
 
-            #topbar .contact-info i span a {
-                color: #fff !important;
-            }
+        #topbar .contact-info i span a {
+            color: #fff !important;
+        }
 </style>
 
 <link href="~/lib/lightbox/lightboxed.css" rel="stylesheet">
@@ -23,9 +23,7 @@
         <div class="row">
             <div class="col-lg-12 text-start">
                 <h1>Welcome to <span>Aunty 'B' Compere</span></h1>
-
-                @*<h2 class="fw-600">Looking For An MC Who Can Actively Engage Your Audience?</h2>*@
-                <p>Your exceptional and swaggerlicious MC - CI CI CI</p>
+                <p>Your exceptional and swaggerlicious MC</p>
 
                 <div class="btns">
                     <a href="/book" class="btn-book animated fadeInUp scrollto">Book an Appointment Now</a>
@@ -142,20 +140,122 @@
 </section><!-- End Get Started Section -->
 <!-- ======= Testimonials Section ======= -->
 @await Html.PartialAsync("~/Pages/Partials/_Testimonials.cshtml", Model.Testimonials)
-@*<partial name="~/Pages/Partials/_Testimonials.cshtml" />*@
 <!-- End Testimonials Section -->
-<!-- ======= Our Projects Section ======= -->
+<!-- ======= Our Gallery Section ======= -->
 <div id="gallery-section"></div>
-@*<partial name="~/Pages/Partials/_Gallery.cshtml" />*@
-<!-- End Our Projects Section -->
+<!-- End Our Gallery Section -->
+<!-- Recent News -->
+<section id="news" class="news section-bg">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
 
+        <div class="section-header">
+            <h2>Recent News</h2>
+            <p>Read Top Featured News</p>
+        </div>
+
+        <style>
+            .news-wrapper {
+                position: relative;
+            }
+
+                .news-wrapper .news-logo {
+                    position: absolute;
+                    top: 0;
+                    margin: 10px 15px;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    padding: 3px 5px;
+                }
+
+                    .news-wrapper .news-logo img {
+                        max-width: 55px;
+                        height: auto;
+                    }
+
+                .news-wrapper .news-image {
+                    background-color: #eaeaea;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 450px;
+                }
+
+                .news-wrapper .news-link {
+                    position: absolute;
+                    bottom: 0;
+                    padding: 20px 15px;
+                    background: rgba(0,0,0,0.6);
+                    backdrop-filter: blur(5px);
+                }
+
+                    .news-wrapper .news-link a {
+                        color: #fff;
+                        font-size: 18px;
+                    }
+
+                        .news-wrapper .news-link a:hover {
+                            text-decoration: underline;
+                        }
+        </style>
+
+        <div class="row">
+            <div class="col-md-4 mt-5">
+                <div class="news-wrapper">
+                    <div class="news-image" style="background-image: url('img/news/bbc-1.jpg')">
+                    </div>
+                    <div class="news-logo">
+                        <img src="img/logos/bbc.png" alt="Alága ìdúró mú ohùn mi lọ lójú agbo tí mo tí ṣe alága ìjókòó l‘Amẹ́ríkà - Bukola Alphonso-Olanrewaju" />
+                    </div>
+                    <div class="news-link">
+                        <a href="https://www.bbc.com/yoruba/articles/cgl37vv52vyo" target="_blank">
+                            Alága ìdúró mú ohùn mi lọ lójú agbo tí mo tí ṣe alága ìjókòó l‘Amẹ́ríkà - Bukola Alphonso-Olanrewaju
+                            <i class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-5">
+                <div class="news-wrapper">
+                    <div class="news-image" style="background-image: url('img/news/opera-news-1.png')">
+                    </div>
+                    <div class="news-logo">
+                        <img src="img/logos/opera-news.png" alt="How A Woman Seizes My Voice During A Wedding Ceremony I Conducted - Yoruba Master Of Ceremony" />
+                    </div>
+                    <div class="news-link">
+                        <a href="http://opr.news/s3c11344c221226en_ng?link=1&client=iosnews" target="_blank">
+                            How A Woman Seizes My Voice During A Wedding Ceremony I Conducted - Yoruba Master Of Ceremony
+                            <i class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-5">
+                <div class="news-wrapper">
+                    <div class="news-image" style="background-image: url('img/news/opera-news-2.png')">
+                    </div>
+                    <div class="news-logo">
+                        <img src="img/logos/opera-news.png" alt="A Drummer Told Me to Use Charm To Make People Spend All the Money In Their Pockets For Me-Wedding MC" />
+                    </div>
+                    <div class="news-link">
+                        <a href="http://opr.news/s1fb2518f221226en_ng?link=1&client=iosnews" target="_blank">
+                            A Drummer Told Me to Use Charm To Make People Spend All the Money In Their Pockets For Me-Wedding MC
+                            <i class="fa-sharp fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Recent News -->
 @section Scripts {
     <script src="~/lib/lightbox/lightboxed.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#gallery-section')
-                        .load('@Url.Content("~/index")?handler=Gallery');
+                .load('@Url.Content("~/index")?handler=Gallery');
         });
     </script>
 }

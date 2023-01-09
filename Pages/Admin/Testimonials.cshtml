@@ -1,0 +1,116 @@
+﻿@page
+@model AuntyBCompere.Pages.Admin.TestimonialsModel
+@{
+    ViewData["Title"] = "Testimonials";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/r-2.4.0/sc-2.0.7/sl-1.5.0/datatables.min.css" />
+
+<style>
+    .stars i {
+        color: var(--color-secondary);
+        font-size: 10px;
+    }
+</style>
+
+<table id="table" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Testimony</th>
+            <th>Rating</th>
+            <th>Services</th>
+            <th>Date Created</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Testimonials)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Country</td>
+                <td>@item.Content</td>
+                <td class="stars">
+                    @for (int i = 1; i <= item.Rating; i++)
+                    {
+                        <i class="fa-solid fa-star"></i>
+                    }
+
+                    @if (5 - item.Rating != 0)
+                    {
+                        for (int i = 1; i <= 5 - item.Rating; i++)
+                        {
+                            <i class="fa-regular fa-star"></i>
+                        }
+                    }
+                </td>
+                <td>@(string.Join(", ", item.Services))</td>
+                <td>@item.DateCreated.ToString("dd MMM, yyyy. hh:mm tt")</td>
+                <td>
+                    @if (item.IsActive)
+                    {
+                        <form asp-page-handler="deactivate" asp-route-id="@item.Id" method="post">
+                            <button class="btn btn-secondary"
+                            onclick="return confirm('Are you sure? \nThis will cause the testimonial to disappear from the website')">
+                                Deactivate
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-page-handler="activate" asp-route-id="@item.Id" method="post">
+                            <button class="btn btn-primary"
+                            onclick="return confirm('Are you sure? \nThis will cause the be displayed in the website for visitors')">
+                                Activate
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success fw-600" id="exampleModalLabel">Successful</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if(TempData["SCC"] != null)
+                {
+                    <p>@TempData["SCC"]</p>
+                }
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>*@
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/r-2.4.0/sc-2.0.7/sl-1.5.0/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                paging: true,
+                ordering: false,
+                info: true,
+            });
+
+        @if (TempData["SCC"] != null) {
+            @:myModal.show();
+        }
+        });
+    </script>
+}

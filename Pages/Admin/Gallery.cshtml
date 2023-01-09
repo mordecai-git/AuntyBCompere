@@ -1,0 +1,187 @@
+﻿@page
+@model AuntyBCompere.Pages.Admin.GalleryModel
+@{
+    ViewData["Title"] = "Gallery Set Up";
+}
+
+<div class="row mt-5">
+    <div class="col-12 mb-3" style="text-align: right;">
+        <button type="button" id="uploadImagesButton" class="btn btn-primary"></button>
+    </div>
+
+    <div class="col-12">
+        <p class="col-md-4 col-12">
+            Select Service
+        </p>
+        <div class="col-md-4 col-12">
+            <select id="serviceList" asp-items="Model.ServiceList" class="form-control"></select>
+        </div>
+    </div>
+
+
+    <div class="col-12 mt-4">
+        <div id="gallery"></div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success fw-600" id="successModalLabel">Successful</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="successText"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Image Modal -->
+<div class="modal fade" id="addImageModal" tabindex="-1" aria-labelledby="addImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-600" id="addImageModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="imageUplaodForm enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <p class="text-danger my-2" id="addErrorText" style="display: none;"></p>
+                    <div class="form-row">
+                        <input type="hidden" id="ServiceId" name="ServiceId">
+
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Description" id="Description">
+                        </div>
+                        <div class="col-12">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input my-3" id="Images" name="Images" multiple="multiple" accept=".jpg,.jpeg,.png">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="uploadImages">Upload</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            let serviceId = $('#serviceList').val();
+            populateImages($('#serviceList option:selected').text());
+
+            $('#serviceList').on('change', function () {
+                serviceId = this.value;
+                populateImages($('#serviceList option:selected').text());
+            });
+
+            function populateImages(serviceName) {
+                $('#addImageModalLabel').html('Upload Images for ' + serviceName);
+                $('#uploadImagesButton').html('Upload images for ' + serviceName);
+                $('#gallery').load(
+                    `@Url.Content("~/admin/gallery")?handler=ServiceImages&id=${serviceId}`
+                )
+            }
+
+            $('#uploadImagesButton').on('click', function () {
+                $('#addImageModal').modal('show');
+            })
+
+            // save images
+            $('#uploadImages').on('click', function () {
+                $('#addErrorText').hide();
+
+                if (document.getElementById('Images').files.length == 0) {
+                    $('#addErrorText').html('Select at one or more images to continue');
+                    $('#addErrorText').show();
+                    return;
+                }
+
+                $('#ServiceId').val(serviceId);
+
+                let formData = new FormData();
+                var files = document.getElementById('Images').files.length;
+                for (var x = 0; x < files; x++) {
+                    formData.append("Images[]", document.getElementById('Images').files[x]);
+                }
+                formData.append('Description', $('#Description').val());
+                formData.append('ServiceId', serviceId.toString());
+
+                //var formData = $('imageUplaodForm').serialize();
+                //var formData = new FormData($('imageUplaodForm'));
+                $.ajax({
+                    type: 'POST',
+                    url: `@Url.Content("~/admin/gallery")?handler=AddImages`,
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    success: function (response) {
+                        if (response.status == false) {
+                            $('#addErrorText').html(response.error);
+                            $('#addErrorText').show();
+                        } else {
+                            // close form modal
+                            $('#addImageModal').modal('hide');
+
+                            // show success modal
+                            $('successText').html(response.message);
+                            $('#successModal').modal('show');
+
+                            // update the gallery files
+                            $.each(response.data, function (index, value) {
+                                let html = `<div class="col-md-4 col-12 mb-5 bg-white shadow" id="image-${value.id}">
+                                                                                                <img src="~/${value.Url}" class="img-fluid" alt="${value.Description}" />
+                                                                                                <div class="image-info">
+                                                                                                    <p>${value.Description}</p>
+
+                                                                                                    <button class="btn btn-danger" onclick>
+                                                                                                        Delete
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            </div>`;
+
+                                $('gallery').prepend(html);
+                            })
+                        }
+                    }
+                })
+            });
+
+            // delete images
+            function deleteImage(id) {
+                if (!confirm("Are you sure you want to delete this image?")) {
+                    return;
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: `@Url.Content("~/admin/gallery")?handler=DeleteImage&id=${id}`,
+                    success: function (response) {
+                        if (response.status == false) {
+                            alert(response.message);
+                        } else {
+                            $(`#image-${id}`).detach();
+                        }
+                    }
+                })
+            }
+        });
+    </script>
+}
