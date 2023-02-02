@@ -15,6 +15,7 @@ using System.IO;
 using Newtonsoft.Json;
 
 using NuGet.Protocol.Plugins;
+using AuntyBCompere.Utilities;
 
 namespace AuntyBCompere.Pages.Admin
 {
@@ -44,8 +45,6 @@ namespace AuntyBCompere.Pages.Admin
                 }).ToList();
 
             ServiceList = new SelectList(Services, nameof(ServiceView.Id), nameof(ServiceView.Name));
-
-
         }
 
         public ActionResult OnGetServiceImages(int id)
@@ -58,7 +57,7 @@ namespace AuntyBCompere.Pages.Admin
             return Partial("_GalleryImages", images);
         }
 
-        public ActionResult OnPostAddImages(ImageModel model)
+        public ActionResult OnPostAddImages([FromForm] ImageModel model)
         {
             // validate the model
             string error = string.Empty;
@@ -73,26 +72,24 @@ namespace AuntyBCompere.Pages.Admin
                 {
                     error = "One or more files is invalid or too big."
                         + Environment.NewLine;
-                    return new JsonResult(JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        data = "",
-                        message = error
-                    }));
+                    break;
                 }
                 string ext = Path.GetExtension(file.FileName)?.ToLowerInvariant();
                 if (string.IsNullOrEmpty(ext) || !acceptedFiles.Contains(ext))
                 {
                     error = "One or more file is invalid, " +
                         "please upload only a .jpg, .jpeg or .png" + Environment.NewLine;
-                    return new JsonResult(JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        data = "",
-                        message = error
-                    }));
+                    break;
                 }
             }
+
+            if (!string.IsNullOrEmpty(error))
+                return new JsonResult(JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    data = "",
+                    message = error
+                }));
 
             if (model.ServiceId == 0 || string.IsNullOrEmpty(model.Description))
             {
@@ -124,13 +121,13 @@ namespace AuntyBCompere.Pages.Admin
                     }));
                 }
 
+                string target = Path.Combine(basePath, service.Name.RemoveSpecialCharacters());
+                if (!Directory.Exists(target))
+                    Directory.CreateDirectory(target);
+
                 foreach (var file in model.Images)
                 {
                     var fileGuid = Guid.NewGuid().ToString().ToLower();
-                    string target = Path.Combine(basePath, service.Name);
-                    if (!Directory.Exists(target))
-                        Directory.CreateDirectory(target);
-
                     string fileName = $"{Guid.NewGuid().ToString().ToLower()}{Path.GetExtension(file.FileName)}";
                     string filePath = Path.Combine(target, fileName);
 
@@ -145,10 +142,11 @@ namespace AuntyBCompere.Pages.Admin
                         Url = $"img/services/{service.Name}/{fileName}"
                     };
                     _context.Add(gallery);
-                    _context.SaveChanges();
                     result.Add(gallery);
                     toBeRemovedFiles.Add(filePath);
                 }
+
+                _context.SaveChanges();
 
                 return new JsonResult(JsonConvert.SerializeObject(new
                 {

@@ -3,12 +3,17 @@
 using AuntyBCompere.Data;
 
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 
 // Add services to the container.
 builder.Services.AddRazorPages(options =>
 {
+    options.Conventions.AuthorizeFolder("/Admin");
     options.Conventions.AuthorizeFolder("/Testimonials");
     options.Conventions.AuthorizeFolder("/Users");
     options.Conventions.AllowAnonymousToPage("/Testimonials/Index");

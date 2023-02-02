@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuntyBCompere.Pages.Admin
 {
-    public class BookingsModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly AuntyBCompereContext _context;
 
-        public BookingsModel(AuntyBCompereContext context)
+        public IndexModel(AuntyBCompereContext context)
         {
             _context = context;
         }

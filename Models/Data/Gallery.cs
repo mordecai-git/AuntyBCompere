@@ -14,5 +14,5 @@ public class Gallery
     public string Url { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
 
-    public Service Service { get; set; }
+    //public Service Service { get; set; }
 }

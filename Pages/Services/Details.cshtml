@@ -16,25 +16,25 @@
         margin-top: 5px;
     }
 
-    @@media(max-width: 990px){
+    @@media(max-width: 990px) {
         .service-header a {
             display: inline-block;
             margin-top: 0;
         }
     }
 
-        .service-header a:hover {
-            border-bottom: 2px solid var(--color-primary);
-        }
+    .service-header a:hover {
+        border-bottom: 2px solid var(--color-primary);
+    }
 
-        .service-header a.active {
-            background-color: var(--color-primary);
-        }
+    .service-header a.active {
+        background-color: var(--color-primary);
+    }
 
-        .service-header a.active {
-            color: #fff;
-            cursor: default;
-        }
+    .service-header a.active {
+        color: #fff;
+        cursor: default;
+    }
 
 </style>
 
@@ -67,9 +67,9 @@
                         <a asp-page="/services/details" asp-route-id="3" class="@(Model.Service.Id == 3 ? "active" : "")">
                             Clowning and Costuming
                         </a>
-                      @*  <a asp-page="/services/details" asp-route-id="10" class="@(Model.Service.Id == 10 ? "active" : "")">
+                        <a asp-page="/services/details" asp-route-id="10" class="@(Model.Service.Id == 10 ? "active" : "")">
                             Wedding Officiant
-                        </a>*@
+                        </a>
                         <a asp-page="/services/details" asp-route-id="4" class="@(Model.Service.Id == 4 ? "active" : "")">
                             Trainings
                         </a>

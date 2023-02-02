@@ -114,10 +114,12 @@
                 let formData = new FormData();
                 var files = document.getElementById('Images').files.length;
                 for (var x = 0; x < files; x++) {
-                    formData.append("Images[]", document.getElementById('Images').files[x]);
+                    formData.append("Images", document.getElementById('Images').files[x]);
                 }
                 formData.append('Description', $('#Description').val());
                 formData.append('ServiceId', serviceId.toString());
+
+                console.log({formData})
 
                 //var formData = $('imageUplaodForm').serialize();
                 //var formData = new FormData($('imageUplaodForm'));
@@ -132,16 +134,19 @@
                         xhr.setRequestHeader("XSRF-TOKEN",
                             $('input:hidden[name="__RequestVerificationToken"]').val());
                     },
-                    success: function (response) {
-                        if (response.status == false) {
-                            $('#addErrorText').html(response.error);
+                    success: function (res) {
+                        let response = JSON.parse(res);
+                        console.log({response});
+
+                        if (response.success == false) {
+                            $('#addErrorText').html(response.message);
                             $('#addErrorText').show();
                         } else {
                             // close form modal
                             $('#addImageModal').modal('hide');
 
                             // show success modal
-                            $('successText').html(response.message);
+                            $('#successText').html(response.message);
                             $('#successModal').modal('show');
 
                             // update the gallery files
@@ -160,6 +165,11 @@
                                 $('gallery').prepend(html);
                             })
                         }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log({xhr})
+                        console.log({status})
+                        console.log({ error })
                     }
                 })
             });

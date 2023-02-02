@@ -76,7 +76,7 @@ public class LoginModel : PageModel
             CookieAuthenticationDefaults.AuthenticationScheme, 
             new ClaimsPrincipal(claimsIdentity));
 
-        return Redirect("/admin/bookings");
+        return Redirect("/admin");
     }
 
     private async Task<User> AuthenticateUser(string username, string password)
