@@ -4,22 +4,15 @@ using AuntyBCompere.Models.InputModels;
 using AuntyBCompere.Models.ViewModels;
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Hosting;
-using System.IO;
 
 using Newtonsoft.Json;
-
-using NuGet.Protocol.Plugins;
 using AuntyBCompere.Utilities;
 
 namespace AuntyBCompere.Pages.Admin
 {
-    public class GalleryModel : PageModel
+  public class GalleryModel : PageModel
     {
         private readonly AuntyBCompereContext _context;
         private readonly string basePath;
